@@ -4,7 +4,7 @@ describe("My Fourth Test Suite", function () {
   it("My FourthTest case", function () {
     //check boxes
 
-    cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+    cy.visit("http://qaclickacademy.com/practice.php");
     cy.get('#alertbtn').click()
     cy.get('[value = "Confirm"]')
 
@@ -19,5 +19,10 @@ describe("My Fourth Test Suite", function () {
     cy.on('window.confirm', (str) => {
         expect(str).to.equal( 'Hello , Are you sure you want to confirm ?')
     })
+
+    cy.get('#opentab').invoke('removeAttr','target').click()
+    cy.go('back')
+    cy.url().should("include", 'qaclickacademy');
+
   });
 });
